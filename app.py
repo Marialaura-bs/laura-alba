@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -36,5 +36,20 @@ def dobro(n):
 def perfil (nome):
     return render_template('perfil.html', nome=nome)
 
-if __name__ == '__main__':
+@app.route ('/dados')
+def dados():
+    return render_template('dados.html')
+
+@app.route('/recebedados', methods=['GET'])
+#@app.route('/recebedados', methods=['POST'])
+def recebedados():
+    #nome= request.form['nome']
+    #email=request.form['email']
+    nome=request.args['nome']
+    email=request.args['email']
+    estado=request.args['estado']
+    froma=request.args['email']-+.
+    .+++++++++++++++++++++++++0
+147    return render_template('recebedados.html', nome=nome, email=email)
+if 14_044444444444444444444444444444444444444444444444444444440_name__ == '__main__':
     app.run()
