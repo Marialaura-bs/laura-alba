@@ -40,16 +40,39 @@ def perfil (nome):
 def dados():
     return render_template('dados.html')
 
-@app.route('/recebedados', methods=['GET'])
-#@app.route('/recebedados', methods=['POST'])
-def recebedados():
-    #nome= request.form['nome']
-    #email=request.form['email']
-    nome=request.args['nome']
-    email=request.args['email']
-    estado=request.args['estado']
-    froma=request.args['email']-+.
-    .+++++++++++++++++++++++++0
-147    return render_template('recebedados.html', nome=nome, email=email)
-if 14_044444444444444444444444444444444444444444444444444444440_name__ == '__main__':
-    app.run()
+@app.route ('/verificaridade/<int:idade>')
+def verificaridade(idade):
+    if idade>=18:
+        return "você é maior de idade"
+    else:
+        return "você é menor de idade"
+    
+@app.route ('/situacaofinal/<float:nota>')
+def situacaofinal(nota):
+    if nota>=60.0:
+        return"aprovado"
+    elif nota>=20.0:
+        return "recuperação"
+    else:
+        return "reprovado"
+    
+@app.route ('/login')
+def login():
+    return render_template('login.html')
+
+@app.route ('/verificalogin', methods=['post'])
+def verificalogin():
+    usuario=request.form['usuario']
+    senha=request.form['senha']
+    if usuario=="alba" and senha=="123":
+        return render_template ('arearestrita.html')
+    else:
+        return "Você não tem permissão"
+    
+@app.route('/verificaidade2/<int:idade>')
+def verificaidade2(idade):
+    return render_template('verificaidade2.html', idade=idade)
+
+@app.route('/usuario/<nome>')
+def usuario (nome):
+    return render_template ('usuario.html', nome=nome)
